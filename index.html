@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Hanein Fatouh Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky header, hero with Upwork record card, proof tiles, case-study grid that opens a detail dialog, field notes, services, process, stack, about, contact block. Mirrors fully for RTL. */
+:root{
+  --bg:#EDF2F4; --surface:#FFFFFF; --surface-2:#DFE9ED; --fg:#06222B; --muted:#4A6670; --line:#C8D8DE;
+  --accent:#006D77; --accent-ink:#FFFFFF; --hot:#E8431F; --good:#1C8F55;
+  --font-display:"Bricolage Grotesque","Hanken Grotesk",system-ui,sans-serif;
+  --font-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --font-ar:"IBM Plex Sans Arabic","Hanken Grotesk",system-ui,sans-serif;
+  --radius:14px; --maxw:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#04191F; --surface:#0A2830; --surface-2:#103540; --fg:#E7F3F4; --muted:#93B0B8; --line:#1B424D;
+    --accent:#4FD8CB; --accent-ink:#04191F; --hot:#FF7B57; --good:#3FD78A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#04191F; --surface:#0A2830; --surface-2:#103540; --fg:#E7F3F4; --muted:#93B0B8; --line:#1B424D;
+  --accent:#4FD8CB; --accent-ink:#04191F; --hot:#FF7B57; --good:#3FD78A; color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--font-body); font-size:16px; line-height:1.6;
+  padding-block:0 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+html[dir="rtl"] body, html[dir="rtl"] button, html[dir="rtl"] input{font-family:var(--font-ar)}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] .brand{font-family:var(--font-ar)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.wrap{max-width:var(--maxw);margin-inline:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+html[dir="rtl"] .eyebrow{letter-spacing:0;font-family:var(--font-ar);font-size:13px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:31;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
+.brand{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--hot);display:inline-block}
+nav.links{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+nav.links a{text-decoration:none;font-size:14px;font-weight:500;color:var(--muted)}
+nav.links a:hover{color:var(--fg)}
+.tools{display:flex;gap:8px;align-items:center}
+.chip-btn{font-size:13px;font-weight:600;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;min-height:36px}
+.chip-btn:hover{border-color:var(--accent)}
+.hire{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);text-decoration:none;display:inline-flex;align-items:center}
+.hire:hover{filter:brightness(1.1);border-color:var(--accent)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:48px;padding-block:64px 40px;align-items:start}
+.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(38px,6vw,78px);line-height:1;letter-spacing:-.035em;margin:18px 0 22px;text-wrap:balance}
+html[dir="rtl"] .hero h1{line-height:1.25;letter-spacing:0}
+.hero h1 em{font-style:normal;color:var(--hot)}
+.lede{font-size:18px;color:var(--muted);max-width:58ch;margin:0 0 28px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:15px;padding:13px 22px;border-radius:12px;border:1px solid var(--fg);min-height:48px;cursor:pointer;background:transparent}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.1)}
+.btn.ghost:hover{background:var(--surface-2)}
+.where{margin:22px 0 0;font-size:14px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.live{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--fg)}
+.live::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px color-mix(in srgb,var(--good) 24%,transparent)}
+
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.ledger-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.ledger dl{margin:0;padding:4px 18px 8px}
+.ledger .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.ledger .row:last-child{border-bottom:0}
+.ledger dt{color:var(--muted);font-size:14px}
+.side{display:grid;gap:16px;min-width:0}
+.core{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px;display:grid;gap:12px}
+.core .chips span{font-family:var(--font-mono);font-size:12px;padding:5px 10px}
+.ledger dd{direction:ltr;unicode-bidi:isolate;margin:0;font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+html[dir="rtl"] .ledger dd{font-family:var(--font-ar)}
+.ledger .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;border-top:1px solid var(--line)}
+.ledger .foot a{font-weight:600;font-size:14px;color:var(--accent)}
+.code{margin:0;font-family:var(--font-mono);font-size:12.5px;color:var(--muted);direction:ltr;text-align:left;overflow-x:auto}
+.code b{color:var(--accent);font-weight:500}
+.code s{text-decoration:none;color:var(--hot)}
+
+/* proof tiles */
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);margin-block:16px 88px}
+.tile{padding:22px 24px;border-inline-end:1px solid var(--line)}
+.tile:last-child{border-inline-end:0}
+.tile strong{display:block;font-family:var(--font-display);font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+html[dir="rtl"] .tile strong{font-family:var(--font-ar)}
+.tile span{font-size:14px;color:var(--muted);display:block;margin-top:4px}
+
+/* sections */
+section{padding-block:0 96px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.sec-head h2{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.2vw,54px);letter-spacing:-.03em;line-height:1.05;margin:8px 0 0;text-wrap:balance;max-width:20ch}
+html[dir="rtl"] .sec-head h2{letter-spacing:0;line-height:1.25}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{font-size:13.5px;font-weight:500;cursor:pointer;padding:8px 15px;min-height:38px;border-radius:999px;background:transparent;color:var(--muted);border:1px solid var(--line)}
+.filters button:hover{color:var(--fg);border-color:var(--fg)}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* case-study cards */
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card[hidden]{display:none}
+.thumb{--c:hsl(var(--h) 70% 50%);position:relative;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:color-mix(in srgb,var(--c) 14%,var(--surface-2));padding:16px 16px 0;display:flex;flex-direction:column;border-bottom:1px solid var(--line);direction:ltr}
+.chrome{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-bottom:0;border-radius:10px 10px 0 0;padding:8px 10px}
+.chrome i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.chrome span{margin-inline-start:8px;font-family:var(--font-mono);font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.page{flex:1;background:var(--surface);border:1px solid var(--line);border-bottom:0;padding:12px;display:grid;grid-template-rows:auto 1fr auto;gap:10px;min-height:0}
+.page .nav{display:flex;gap:6px;align-items:center}
+.page .nav b{width:34px;height:7px;border-radius:4px;background:var(--c)}
+.page .nav u{width:18px;height:5px;border-radius:3px;background:var(--line);text-decoration:none}
+.page .hero-b{border-radius:8px;background:var(--c);position:relative;overflow:hidden;min-height:0}
+.page .hero-b::after{content:"";position:absolute;inset:auto 14% 18% 14%;height:7px;border-radius:4px;background:rgba(255,255,255,.8);box-shadow:0 14px 0 -1px rgba(255,255,255,.45)}
+.page .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.page .tiles i{height:22px;border-radius:5px 5px 0 0;background:color-mix(in srgb,var(--c) 22%,var(--surface-2))}
+.shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transition:opacity .25s ease}
+.shot.ok{opacity:1}
+.card-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1;min-width:0}
+.open{all:unset;cursor:pointer;font-family:var(--font-display);font-size:21px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+html[dir="rtl"] .open{font-family:var(--font-ar)}
+.open::after{content:"";position:absolute;inset:0;z-index:1}
+.open:focus-visible{outline:none}
+.open:focus-visible::after{outline:3px solid var(--accent);outline-offset:-3px;border-radius:var(--radius)}
+.card-body p{margin:0;color:var(--muted);font-size:14.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tags span{font-family:var(--font-mono);font-size:11.5px;padding:3px 9px;border-radius:6px;background:var(--surface-2)}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13.5px;font-weight:600;color:var(--accent);padding-top:6px}
+.visit{position:relative;z-index:2;font-family:var(--font-mono);font-weight:500;font-size:12.5px;color:var(--accent);text-decoration:none;direction:ltr}
+.visit:hover{text-decoration:underline}
+
+/* more builds */
+.more-h{font-family:var(--font-display);font-size:26px;font-weight:700;letter-spacing:-.02em;margin:64px 0 6px}
+html[dir="rtl"] .more-h{font-family:var(--font-ar)}
+.more{border-top:1px solid var(--fg)}
+.mrow{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) minmax(0,240px);gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.mrow[hidden]{display:none}
+.mrow h4{margin:0;font-family:var(--font-display);font-size:18px;font-weight:700;letter-spacing:-.01em}
+html[dir="rtl"] .mrow h4{font-family:var(--font-ar)}
+.mrow p{margin:0;color:var(--muted);font-size:15px}
+.mlinks{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.mlinks a{font-family:var(--font-mono);font-size:12.5px;color:var(--accent);text-decoration:none;direction:ltr}
+.mlinks a:hover{text-decoration:underline}
+.mlinks .tags{padding-top:0;margin-top:0}
+.also{margin-top:40px}
+.also h3{font-family:var(--font-display);font-size:22px;font-weight:700;margin:0 0 14px}
+html[dir="rtl"] .also h3{font-family:var(--font-ar)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.note{margin:26px 0 0;color:var(--muted);font-size:15px;max-width:66ch}
+
+/* field notes */
+.notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.nc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.nc h3{margin:0;font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.25}
+html[dir="rtl"] .nc h3{font-family:var(--font-ar)}
+.nc dl{margin:0;display:grid;gap:10px}
+.nc dt{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--hot)}
+html[dir="rtl"] .nc dt{font-family:var(--font-ar);letter-spacing:0;font-size:13px}
+.nc dd{margin:0;font-size:15px;color:var(--fg)}
+.nc .src{margin-top:auto;font-family:var(--font-mono);font-size:11.5px;color:var(--muted)}
+html[dir="rtl"] .nc .src{font-family:var(--font-ar);font-size:12.5px}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:56px}
+.svc article{display:grid;gap:8px;padding:26px 0;border-top:1px solid var(--fg);align-content:start}
+.svc h3{margin:0;font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+html[dir="rtl"] .svc h3{font-family:var(--font-ar)}
+.svc p{margin:0;color:var(--muted);max-width:56ch}
+.svc ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.svc li{font-family:var(--font-mono);font-size:12px;border:1px solid var(--line);border-radius:6px;padding:3px 9px;background:var(--surface)}
+
+/* process */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.steps li{padding:24px;border-inline-end:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.steps li:last-child{border-inline-end:0}
+.steps b{font-family:var(--font-mono);font-weight:500;font-size:13px;color:var(--hot)}
+.steps h3{margin:0;font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-.01em}
+html[dir="rtl"] .steps h3{font-family:var(--font-ar)}
+.steps p{margin:0;color:var(--muted);font-size:15px}
+
+/* stack */
+.stack{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.stack .r{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;padding:18px 24px;border-bottom:1px solid var(--line);align-items:baseline}
+.stack .r:last-child{border-bottom:0}
+.stack .r b{font-family:var(--font-mono);font-weight:500;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+html[dir="rtl"] .stack .r b{letter-spacing:0;font-family:var(--font-ar);font-size:14px}
+.stack .r span{font-size:15.5px}
+
+/* voices */
+.voices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.voice{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin:0;display:grid;gap:14px;align-content:start}
+.voice blockquote{margin:0;font-size:17px;line-height:1.5}
+.voice figcaption{font-size:14px;color:var(--muted)}
+
+/* about */
+.career{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px}
+.panel h3{margin:0 0 14px;font-family:var(--font-display);font-size:20px;font-weight:700}
+html[dir="rtl"] .panel h3{font-family:var(--font-ar)}
+.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.panel li{display:grid;gap:2px;font-size:15px}
+.panel li small{color:var(--muted);font-size:13px}
+.intro{font-size:18px;color:var(--muted);max-width:66ch;margin:0 0 26px}
+
+/* contact */
+.contact{background:var(--fg);color:var(--bg);border-radius:20px;padding:56px clamp(22px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:center}
+.contact h2{font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4.6vw,56px);letter-spacing:-.03em;line-height:1.05;margin:0 0 14px;text-wrap:balance}
+html[dir="rtl"] .contact h2{font-family:var(--font-ar);letter-spacing:0;line-height:1.25}
+.contact p{margin:0;opacity:.8;max-width:50ch}
+.stackbox{display:grid;gap:12px}
+.contact .btn{border-color:var(--bg);color:var(--bg);justify-content:center}
+.contact .btn.primary{background:var(--hot);border-color:var(--hot);color:#fff}
+.contact .btn.ghost:hover{background:color-mix(in srgb,var(--bg) 14%,transparent)}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mailrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid color-mix(in srgb,var(--bg) 35%,transparent);border-radius:12px;padding:10px 14px}
+.mailrow code{font-family:var(--font-mono);font-size:14px;direction:ltr;user-select:all;overflow-wrap:anywhere;min-width:0;flex:1}
+.mailrow button{font-size:13px;font-weight:600;cursor:pointer;background:var(--bg);color:var(--fg);border:0;border-radius:8px;padding:7px 12px;min-height:34px}
+.mailrow button:focus-visible{outline-color:var(--hot)}
+footer{margin-top:36px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* case-study dialog */
+dialog{width:min(940px,calc(100vw - 32px));max-height:calc(100vh - 48px);padding:0;border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--fg);overflow:auto}
+dialog::backdrop{background:rgba(3,22,28,.66)}
+.dl{display:grid;grid-template-columns:minmax(0,1fr)}
+.dl .thumb{aspect-ratio:16/6;border-bottom:1px solid var(--line)}
+.dl-body{padding:32px 32px 28px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.dl-body h3{margin:0;font-family:var(--font-display);font-size:30px;font-weight:800;letter-spacing:-.025em;line-height:1.1}
+html[dir="rtl"] .dl-body h3{font-family:var(--font-ar);letter-spacing:0;line-height:1.3}
+.dl-body .lead{margin:0;color:var(--muted);font-size:16px}
+.dl-body ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.dl-body li{position:relative;padding-inline-start:20px;font-size:15px}
+.dl-body li::before{content:"";position:absolute;inset-inline-start:0;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--hot)}
+.dl-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.dl-actions .btn{padding:10px 18px;min-height:44px;font-size:14px}
+.x{position:absolute;inset-block-start:12px;inset-inline-end:12px;z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:20px;line-height:1}
+.x:hover{border-color:var(--accent)}
+
+/* responsive */
+@media (max-width:1000px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:44px 32px}
+  .grid,.notes,.voices{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tile:nth-child(2){border-inline-end:0}
+  .tile:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .svc,.career,.contact{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps li:nth-child(2){border-inline-end:0}
+  .steps li:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .stack .r{grid-template-columns:minmax(0,1fr);gap:4px}
+  .mrow{grid-template-columns:minmax(0,1fr);gap:8px}
+  .dl .thumb{aspect-ratio:16/9}
+}
+@media (max-width:640px){
+  .grid,.notes,.voices,.steps{grid-template-columns:minmax(0,1fr)}
+  .steps li{border-inline-end:0;border-bottom:1px solid var(--line)}
+  .steps li:last-child{border-bottom:0}
+  nav.links{display:none}
+  .hero h1{font-size:clamp(36px,11vw,52px)}
+  .contact{padding:36px 22px}
+  .btn-row{grid-template-columns:minmax(0,1fr)}
+  .dl-body{padding:24px 20px}
+  .tile{padding:18px}
+  .tile strong{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top"><i></i><span data-i18n="brand">Hanein Fatouh</span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#notes" data-i18n="nav_notes">Field notes</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#process" data-i18n="nav_process">Process</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+    </nav>
+    <div class="tools">
+      <button class="chip-btn" id="langBtn" type="button" aria-label="Switch language">ع</button>
+      <button class="chip-btn" id="themeBtn" type="button" aria-label="Toggle theme" data-i18n="theme">Theme</button>
+      <a class="chip-btn hire" href="#contact" data-i18n="hire">Hire me</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">Shopify · WordPress · WooCommerce · Custom code</div>
+      <h1 data-i18n-html="h1">Stores and booking systems that <em>make money,</em> not just look good.</h1>
+      <p class="lede" data-i18n="lede">I'm a Top Rated Shopify and WordPress developer in Egypt. I write custom code instead of stacking plugins, build Arabic and English layouts in from day one, and connect your store to the payment gateways and ERPs your market actually uses.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work" data-i18n="cta_work">See the work</a>
+        <a class="btn ghost" href="https://www.upwork.com/freelancers/~013955aefd9b6e2669" target="_blank" rel="noopener" data-i18n="cta_upwork">Hire me on Upwork</a>
+        <button class="btn ghost" id="heroLang" type="button" data-i18n="lang_cta">Read this page in Arabic · عربي</button>
+      </div>
+      <p class="where"><span class="live" data-i18n="open">Taking new projects</span><span data-i18n="where">Based in Egypt. Clients in the GCC, Europe, Australia and the USA.</span></p>
+    </div>
+
+    <div class="side">
+    <aside class="ledger" aria-label="Upwork record">
+      <div class="ledger-head">
+        <span class="eyebrow" data-i18n="led_title">Upwork record</span>
+        <span class="eyebrow">Top Rated</span>
+      </div>
+      <dl>
+        <div class="row"><dt data-i18n="k_jss">Job success</dt><dd>100%</dd></div>
+        <div class="row"><dt data-i18n="k_jobs">Jobs delivered</dt><dd>57</dd></div>
+        <div class="row"><dt data-i18n="k_rev">Client reviews</dt><dd>34</dd></div>
+        <div class="row"><dt data-i18n="k_earn">Earned</dt><dd>$10K+</dd></div>
+      </dl>
+      <div class="foot">
+        <a href="https://www.upwork.com/freelancers/~013955aefd9b6e2669" target="_blank" rel="noopener" data-i18n="led_open">Read the reviews on Upwork ↗</a>
+        <pre class="code" aria-hidden="true">&lt;html <b>lang</b>="<s id="cLang">en</s>" <b>dir</b>="<s id="cDir">ltr</s>"&gt;</pre>
+      </div>
+    </aside>
+    <div class="core">
+      <span class="eyebrow" data-i18n="core_h">Core stack</span>
+      <div class="chips"><span>Shopify Plus</span><span>Liquid</span><span>WooCommerce</span><span>ACF Pro</span><span>Elementor</span><span>PHP</span><span>Odoo</span><span>XPay</span><span>Ziina</span><span>HubSpot</span><span>REST APIs</span><span>Claude API</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="proof" role="list">
+    <div class="tile" role="listitem"><strong>20%</strong><span data-i18n="p1">faster load from a custom subscription and booking plugin</span></div>
+    <div class="tile" role="listitem"><strong>4</strong><span data-i18n="p2">GCC markets handled with separate logic on one Shopify Plus store</span></div>
+    <div class="tile" role="listitem"><strong>EN / AR</strong><span data-i18n="p3">native Arabic and English, RTL and LTR, in every build</span></div>
+    <div class="tile" role="listitem"><strong>Odoo</strong><span data-i18n="p4">XPay, Ziina, Stripe, HubSpot and ERP integrations in production</span></div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-i18n="work_eyebrow">Case studies</div>
+        <h2 data-i18n="work_h">Real builds, with the problems I solved.</h2>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+
+    <h3 class="more-h" data-i18n="more_h">More builds</h3>
+    <div class="more" id="more"></div>
+
+    <div class="also">
+      <h3 data-i18n="also_h">Also delivered</h3>
+      <div class="chips" id="also"></div>
+    </div>
+    <p class="note" data-i18n="work_note">These are the projects I can show publicly. I have built many more, including smaller fixes, migrations and retainers, and can share more on request.</p>
+  </section>
+
+  <section id="notes">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-i18n="notes_eyebrow">Field notes</div>
+        <h2 data-i18n="notes_h">Bugs I tracked down to the root.</h2>
+      </div>
+    </div>
+    <div class="notes" id="notesGrid"></div>
+  </section>
+
+  <section id="services">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-i18n="svc_eyebrow">What I own end to end</div>
+        <h2 data-i18n="svc_h">One accountable developer for the whole build.</h2>
+      </div>
+    </div>
+    <div class="svc" id="svc"></div>
+  </section>
+
+  <section id="process">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-i18n="proc_eyebrow">How a project runs</div>
+        <h2 data-i18n="proc_h">Clear scope, daily updates, code you can hand on.</h2>
+      </div>
+    </div>
+    <ol class="steps" id="steps"></ol>
+  </section>
+
+  <section id="stack">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-i18n="stack_eyebrow">Toolbox</div>
+        <h2 data-i18n="stack_h">What it is built with.</h2>
+      </div>
+    </div>
+    <div class="stack" id="stackBox"></div>
+  </section>
+
+  <section id="voices" hidden>
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-i18n="voices_eyebrow">Client words</div>
+        <h2 data-i18n="voices_h">What clients say.</h2>
+      </div>
+    </div>
+    <div class="voices" id="voicesGrid"></div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" data-i18n="about_eyebrow">Background</div>
+        <h2 data-i18n="about_h">Engineer first.</h2>
+      </div>
+    </div>
+    <p class="intro" data-i18n="about_p">A computer engineer based in Egypt, freelancing full time for clients across the GCC, Europe, Australia and the USA. I document what I build, so the next developer, or you, can pick it up without me.</p>
+    <div class="career">
+      <div class="panel">
+        <h3 data-i18n="exp_h">Experience</h3>
+        <ul>
+          <li><span>Grow Pro</span><small data-i18n="exp1">Shopify Developer</small></li>
+          <li><span>Era Solutions</span><small data-i18n="exp2">Full Stack Developer</small></li>
+          <li><span>Datasoft</span><small data-i18n="exp3">Web Developer</small></li>
+          <li><span data-i18n="exp4">Independent, on Upwork</span><small data-i18n="exp4s">Top Rated freelance developer</small></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-i18n="edu_h">Education and recognition</h3>
+        <ul>
+          <li><span data-i18n="edu1">BEng, Computer Engineering (2018 to 2023)</span><small>Arab Academy for Science, Technology and Maritime Transport</small></li>
+          <li><span data-i18n="edu2">Best Women's Project Award</span><small>IEEE</small></li>
+          <li><span data-i18n="edu3">Building Web Applications in PHP</span><small data-i18n="edu3s">Certificate, 2026</small></li>
+          <li><span data-i18n="edu4">Shopify Academy: Liquid Storefronts for Theme Developers</span><small data-i18n="edu4s">In progress</small></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-i18n="lang_h">Languages</h3>
+        <ul>
+          <li><span data-i18n="l1">Arabic</span><small data-i18n="l1s">Native, Egyptian and Gulf dialect fluent</small></li>
+          <li><span data-i18n="l2">English</span><small data-i18n="l2s">Native or bilingual</small></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3 data-i18n="off_h">Off the keyboard</h3>
+        <ul>
+          <li><span data-i18n="off1">Free-diving on the Red Sea</span><small data-i18n="off1s">Same habit as the code: slow down, check the depth, come back clean.</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-bottom:0">
+    <div class="contact">
+      <div>
+        <h2 data-i18n="c_h">Send me your store URL and the one thing slowing sales.</h2>
+        <p data-i18n="c_p">I will tell you what I would fix first. Clear scope, daily updates and documented code on every project.</p>
+      </div>
+      <div class="stackbox">
+        <a class="btn primary" href="https://www.upwork.com/freelancers/~013955aefd9b6e2669" target="_blank" rel="noopener" data-i18n="c_btn">Open my Upwork profile</a>
+        <div class="btn-row">
+          <a class="btn ghost" href="https://youtu.be/4FdbX6Je-I0" target="_blank" rel="noopener" data-i18n="c_video">Watch my intro</a>
+          <a class="btn ghost" href="https://github.com/HaneenAyman223" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="mailrow">
+          <code id="mail">haneen292000@gmail.com</code>
+          <button type="button" id="copyBtn" data-i18n="copy">Copy</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <span>© 2026 Hanein Fatouh</span>
+      <span data-i18n="foot">Egypt · GCC, Europe, Australia and USA clients</span>
+    </footer>
+  </section>
+</main>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <button class="x" type="button" id="dlgClose" aria-label="Close">×</button>
+  <div class="dl" id="dlgBody"></div>
+</dialog>
+
+<script>
+(function(){
+  /* ---------- Static text ---------- */
+  var T = {
+    en:{
+      brand:"Hanein Fatouh", nav_work:"Work", nav_notes:"Field notes", nav_services:"Services", nav_process:"Process", nav_about:"About",
+      theme:"Theme", hire:"Hire me",
+      eyebrow:"Shopify · WordPress · WooCommerce · Custom code",
+      h1:"Stores and booking systems that <em>make money,</em> not just look good.",
+      lede:"I'm a Top Rated Shopify and WordPress developer in Egypt. I write custom code instead of stacking plugins, build Arabic and English layouts in from day one, and connect your store to the payment gateways and ERPs your market actually uses.",
+      cta_work:"See the work", cta_upwork:"Hire me on Upwork", lang_cta:"Read this page in Arabic · عربي",
+      open:"Taking new projects", where:"Based in Egypt. Clients in the GCC, Europe, Australia and the USA.",
+      led_title:"Upwork record", k_jss:"Job success", k_jobs:"Jobs delivered", k_rev:"Client reviews", k_earn:"Earned",
+      led_open:"Read the reviews on Upwork ↗", core_h:"Core stack",
+      p1:"faster load from a custom subscription and booking plugin",
+      p2:"GCC markets handled with separate logic on one Shopify Plus store",
+      p3:"native Arabic and English, RTL and LTR, in every build",
+      p4:"XPay, Ziina, Stripe, HubSpot and ERP integrations in production",
+      work_eyebrow:"Case studies", work_h:"Real builds, with the problems I solved.",
+      more_h:"More builds", also_h:"Also delivered",
+      work_note:"These are the projects I can show publicly. I have built many more, including smaller fixes, migrations and retainers, and can share more on request.",
+      notes_eyebrow:"Field notes", notes_h:"Bugs I tracked down to the root.",
+      svc_eyebrow:"What I own end to end", svc_h:"One accountable developer for the whole build.",
+      proc_eyebrow:"How a project runs", proc_h:"Clear scope, daily updates, code you can hand on.",
+      stack_eyebrow:"Toolbox", stack_h:"What it is built with.",
+      voices_eyebrow:"Client words", voices_h:"What clients say.",
+      about_eyebrow:"Background", about_h:"Engineer first.",
+      about_p:"A computer engineer based in Egypt, freelancing full time for clients across the GCC, Europe, Australia and the USA. I document what I build, so the next developer, or you, can pick it up without me.",
+      exp_h:"Experience", exp1:"Shopify Developer", exp2:"Full Stack Developer", exp3:"Web Developer", exp4:"Independent, on Upwork", exp4s:"Top Rated freelance developer",
+      edu_h:"Education and recognition", edu1:"BEng, Computer Engineering (2018 to 2023)", edu2:"Best Women's Project Award", edu3:"Building Web Applications in PHP", edu3s:"Certificate, 2026",
+      edu4:"Shopify Academy: Liquid Storefronts for Theme Developers", edu4s:"In progress",
+      lang_h:"Languages", l1:"Arabic", l1s:"Native, Egyptian and Saudi dialects", l2:"English", l2s:"Native or bilingual",
+      off_h:"Off the keyboard", off1:"Free-diving on the Red Sea", off1s:"Same habit as the code: slow down, check the depth, come back clean.",
+      c_h:"Send me your store URL and the one thing slowing sales.",
+      c_p:"I will tell you what I would fix first. Clear scope, daily updates and documented code on every project.",
+      c_btn:"Open my Upwork profile", c_video:"Watch my intro", copy:"Copy", copied:"Copied",
+      foot:"Egypt · GCC, Europe, Australia and USA clients",
+      f_all:"All", f_shopify:"Shopify", f_wordpress:"WordPress", f_woo:"WooCommerce", f_integration:"Integrations", f_bilingual:"Bilingual", f_rescue:"Security and rescue",
+      d_did:"What I did", d_visit:"Visit the live site ↗", d_close:"Close", d_case:"Case study →", s_label:"Symptom", c_label:"Cause", x_label:"Fix"
+    },
+    ar:{
+      brand:"حنين فتوح", nav_work:"الأعمال", nav_notes:"ملاحظات ميدانية", nav_services:"الخدمات", nav_process:"طريقة العمل", nav_about:"نبذة",
+      theme:"المظهر", hire:"وظّفني",
+      eyebrow:"شوبيفاي · ووردبريس · ووكومرس · برمجة مخصصة",
+      h1:"متاجر وأنظمة حجز <em>تحقق أرباحًا،</em> لا مجرد مظهر جميل.",
+      lede:"أنا مطوّر شوبيفاي وووردبريس حاصل على شارة Top Rated، ومقيم في مصر. أكتب كودًا مخصصًا بدل تكديس الإضافات، وأبني دعم العربية والإنجليزية في التصميم من اليوم الأول، وأربط متجرك ببوابات الدفع وأنظمة ERP التي يستخدمها سوقك فعلًا.",
+      cta_work:"شاهد الأعمال", cta_upwork:"وظّفني عبر Upwork", lang_cta:"Read this page in English · EN",
+      open:"متاح لمشاريع جديدة", where:"مقيم في مصر. أعمل مع عملاء في الخليج وأوروبا وأستراليا وأمريكا.",
+      led_title:"سجلي على Upwork", k_jss:"نسبة نجاح الأعمال", k_jobs:"مشروعًا مُسلَّمًا", k_rev:"تقييمًا من العملاء", k_earn:"الأرباح",
+      led_open:"اقرأ التقييمات على Upwork ↗", core_h:"الأدوات الأساسية",
+      p1:"تحسّن في سرعة التحميل بفضل إضافة اشتراكات وحجوزات مخصصة",
+      p2:"أسواق خليجية بمنطق منفصل لكل سوق في متجر Shopify Plus واحد",
+      p3:"عربي وإنجليزي أصيلان، باتجاه RTL وLTR، في كل مشروع",
+      p4:"تكاملات XPay وZiina وStripe وHubSpot وأنظمة ERP تعمل فعليًا",
+      work_eyebrow:"دراسات حالة", work_h:"مشاريع حقيقية، ومشكلات حللتها.",
+      more_h:"مشاريع أخرى", also_h:"أعمال أخرى سلّمتها",
+      work_note:"هذه المشاريع التي يمكنني عرضها علنًا. أنجزت مشاريع أخرى كثيرة، منها إصلاحات أصغر وعمليات ترحيل وعقود صيانة، ويسعدني مشاركتها عند الطلب.",
+      notes_eyebrow:"ملاحظات ميدانية", notes_h:"أعطال تتبّعتها حتى جذرها.",
+      svc_eyebrow:"ما أتولّاه من البداية للنهاية", svc_h:"مطوّر واحد مسؤول عن المشروع كله.",
+      proc_eyebrow:"كيف يسير المشروع", proc_h:"نطاق واضح، وتحديثات يومية، وكود يمكن تسليمه لغيري.",
+      stack_eyebrow:"الأدوات", stack_h:"بماذا أبني.",
+      voices_eyebrow:"آراء العملاء", voices_h:"ماذا يقول العملاء.",
+      about_eyebrow:"الخلفية", about_h:"مهندس أولًا.",
+      about_p:"مهندس حاسبات مقيم في مصر، أعمل بشكل مستقل بدوام كامل مع عملاء في الخليج وأوروبا وأستراليا وأمريكا. أوثّق ما أبنيه ليتمكن المطوّر التالي، أو أنت، من متابعته من دوني.",
+      exp_h:"الخبرة", exp1:"مطوّر شوبيفاي", exp2:"مطوّر Full Stack", exp3:"مطوّر ويب", exp4:"مستقل على Upwork", exp4s:"مطوّر مستقل بشارة Top Rated",
+      edu_h:"التعليم والتكريم", edu1:"بكالوريوس هندسة الحاسبات (2018 إلى 2023)", edu2:"جائزة أفضل مشروع نسائي", edu3:"بناء تطبيقات الويب بلغة PHP", edu3s:"شهادة، 2026",
+      edu4:"أكاديمية شوبيفاي: واجهات Liquid لمطوّري القوالب", edu4s:"قيد الدراسة",
+      lang_h:"اللغات", l1:"العربية", l1s:"لغتي الأم، باللهجتين المصرية والسعودية", l2:"الإنجليزية", l2s:"بطلاقة تامة",
+      off_h:"بعيدًا عن لوحة المفاتيح", off1:"الغوص الحر في البحر الأحمر", off1s:"العادة نفسها في الكود: أبطئ، أتحقق من العمق، وأعود سالمًا.",
+      c_h:"أرسل لي رابط متجرك وأكثر شيء يبطّئ مبيعاتك.",
+      c_p:"سأخبرك بما سأصلحه أولًا. نطاق عمل واضح، وتحديثات يومية، وكود موثّق في كل مشروع.",
+      c_btn:"افتح ملفي على Upwork", c_video:"شاهد فيديو التعريف", copy:"نسخ", copied:"تم النسخ",
+      foot:"مصر · عملاء في الخليج وأوروبا وأستراليا وأمريكا",
+      f_all:"الكل", f_shopify:"شوبيفاي", f_wordpress:"ووردبريس", f_woo:"ووكومرس", f_integration:"التكاملات", f_bilingual:"ثنائي اللغة", f_rescue:"الأمان والإنقاذ",
+      d_did:"ما أنجزته", d_visit:"زيارة الموقع ↗", d_close:"إغلاق", d_case:"تفاصيل المشروع ←", s_label:"العَرَض", c_label:"السبب", x_label:"الحل"
+    }
+  };
+
+  /* ---------- Case studies (open a dialog) ---------- */
+  var FEATURED = [
+    {id:"oatful",h:228,img:"oatful",cat:["shopify","integration"],url:"https://shopoatful.com",tags:["Shopify Plus","Liquid","Impact theme","Markets"],
+     en:{n:"Oatful",t:"A Shopify Plus store selling across the GCC, with logic that changes by market.",d:[
+       "Redesigned the store on the Impact theme and migrated the catalogue to atomic SKUs.",
+       "Built market-specific logic for the UAE, KSA, Qatar and Oman: pricing, shipping rules, discount codes and free-shipping thresholds.",
+       "Built the original custom bundle builder, then helped move it to Fast Bundle for reliable stock sync while keeping the custom visual design.",
+       "Built a geo-aware cart drawer on top of Upcart.",
+       "Tracked down a bundle validation bug that was unchecking customer selections on a large share of bundle orders, and fixed it.",
+       "Added a custom search that hides single pouches through a product tag, and a market check that keeps UAE-only ready-to-eat products off other storefronts.",
+       "Built a block-based video testimonial slider as a custom section, replacing an Instagram hashtag widget.",
+       "Self-hosted the licensed brand fonts and prepared the theme and custom logic for a separate KSA store."]},
+     ar:{n:"أوتفل",t:"متجر على Shopify Plus يبيع في أسواق الخليج، بمنطق يتغيّر حسب كل سوق.",d:[
+       "أعدت تصميم المتجر على قالب Impact ونقلت الكتالوج إلى نظام SKU ذري.",
+       "بنيت منطقًا خاصًا بكل سوق في الإمارات والسعودية وقطر وعُمان: الأسعار وقواعد الشحن وأكواد الخصم وحدود الشحن المجاني.",
+       "بنيت أداة الباقات المخصصة الأولى، ثم ساعدت في الانتقال إلى Fast Bundle لضمان مزامنة المخزون مع الحفاظ على التصميم المخصص.",
+       "بنيت درج سلة يتكيّف مع موقع الزائر فوق Upcart.",
+       "تتبّعت خللًا في التحقق من الباقات كان يلغي اختيارات العملاء في نسبة كبيرة من طلبات الباقات، وأصلحته.",
+       "أضفت بحثًا مخصصًا يخفي الأكياس المفردة عبر وسم على المنتج، وفحصًا للسوق يمنع ظهور الوجبات الجاهزة المخصصة للإمارات في متاجر الأسواق الأخرى.",
+       "صمّمت قسمًا مخصصًا لشرائح شهادات الفيديو بنظام الكتل بدل أداة هاشتاغ إنستغرام.",
+       "استضفت الخطوط المرخّصة للعلامة ذاتيًا، وجهّزت القالب والمنطق المخصص لمتجر سعودي منفصل."]}},
+
+    {id:"alex",h:150,img:"alex-sporting-club",cat:["wordpress","integration","bilingual"],url:"https://alexsportingclub.com",tags:["WordPress","Odoo","XPay","PHP","WP-CLI"],
+     en:{n:"Alexandria Sporting Club",t:"A membership platform that connects a sports club's members to Odoo and online payments.",d:[
+       "OTP-based member sign-in, synced with Odoo.",
+       "A five-step trip booking engine: traveller validation, room allocation and bus seat selection.",
+       "Shuttle bus subscriptions with tiered discounts, real-estate office appointment booking, a member complaints workflow and a Doctor SOS emergency alert.",
+       "Fully bilingual Arabic and English with RTL, plus multi-layer caching for Odoo API calls.",
+       "Moving subscription payments to XPay's newer Checkout Session API with the embedded Drop-in flow.",
+       "Resolved a billing incident where failed payments were treated as successful, using WP-CLI forensic scripts.",
+       "Built drag-and-drop promotion ordering and a view counter, and fixed a fiscal-year API change that caused a PHP fatal error."]},
+     ar:{n:"نادي الإسكندرية الرياضي",t:"منصة عضويات تربط أعضاء النادي بنظام Odoo وبالدفع الإلكتروني.",d:[
+       "تسجيل دخول للأعضاء برمز OTP ومتزامن مع Odoo.",
+       "محرك حجز رحلات من خمس خطوات: التحقق من المسافرين وتوزيع الغرف واختيار مقاعد الحافلة.",
+       "اشتراكات حافلات الشاتل بخصومات متدرجة، وحجز مواعيد مكتب العقارات، ومسار لشكاوى الأعضاء، وتنبيه طوارئ Doctor SOS.",
+       "دعم كامل للعربية والإنجليزية باتجاه RTL، مع تخزين مؤقت متعدد الطبقات لطلبات Odoo.",
+       "ترحيل مدفوعات الاشتراكات إلى واجهة XPay الجديدة القائمة على Checkout Session بنمط Drop-in المدمج.",
+       "حللت حادثة فوترة كانت تُعامَل فيها المدفوعات الفاشلة على أنها ناجحة، باستخدام سكربتات WP-CLI للتحليل الجنائي.",
+       "بنيت ترتيب العروض بالسحب والإفلات وعدّاد المشاهدات، وأصلحت خطأ PHP قاتلًا سببه تغيير في واجهة السنة المالية."]}},
+
+    {id:"bluworks",h:215,img:"bluworks",cat:["wordpress","bilingual","integration"],url:"https://bluworks.io",tags:["WordPress","Kadence child","ACF blocks","Polylang","HubSpot"],
+     en:{n:"Bluworks",t:"A full website rebuild for an HR SaaS platform, in English and Arabic.",d:[
+       "Custom Kadence child theme with an ACF block system.",
+       "Bilingual EN/AR with Polylang, and RTL fixes across many blocks.",
+       "HubSpot form integrations routed through an AJAX proxy.",
+       "Promoted the new design to the live root of the production site, a full migration.",
+       "Migrated Rank Math SEO data across two MySQL databases so ranking metadata carried over.",
+       "Built a blog system with a table of contents and a reading progress bar, and restored the Google Tag Manager container."]},
+     ar:{n:"بلو ووركس",t:"إعادة بناء كاملة لموقع منصة موارد بشرية SaaS، بالعربية والإنجليزية.",d:[
+       "قالب Kadence فرعي مخصص مع نظام كتل ACF.",
+       "دعم ثنائي اللغة EN/AR عبر Polylang، وإصلاحات RTL في كتل كثيرة.",
+       "ربط نماذج HubSpot عبر وسيط AJAX.",
+       "نقل التصميم الجديد إلى جذر الموقع الحي، وهي عملية ترحيل كاملة للموقع.",
+       "نقل بيانات Rank Math SEO بين قاعدتي بيانات MySQL حتى لا تضيع بيانات الظهور في البحث.",
+       "بنيت نظام مدونة بفهرس محتويات وشريط تقدّم للقراءة، واستعدت حاوية Google Tag Manager."]}},
+
+    {id:"ummi",h:350,img:"ummi",cat:["wordpress","integration","bilingual"],url:"https://ummiworld.com",tags:["WordPress","Custom Elementor plugin","Booking","Ziina","AI assistant"],
+     en:{n:"Ummi World",t:"An Arabic-first platform for mothers, with breastfeeding consultations, guides, a store and an AI assistant.",d:[
+       "Built a custom UMMI Elementor widget plugin instead of importing static pages.",
+       "Booking and Ziina payment integration for one-to-one video consultations.",
+       "E-books and guides with automatic PDF delivery by email, an affiliate products section, a blog and a consultants directory.",
+       "Email automation, Google Analytics, Meta Pixel, schema and SEO.",
+       "An AI assistant, Layla, that answers questions and suggests products, books and consultations.",
+       "Traced outgoing mail failures to the server's hostname fallback and switched transactional email to Brevo."]},
+     ar:{n:"عالم أُمّي",t:"منصة عربية للأمهات تضم استشارات الرضاعة والأدلة ومتجرًا ومساعدًا ذكيًا.",d:[
+       "بنيت إضافة ويدجتات UMMI مخصصة لـ Elementor بدل استيراد صفحات ثابتة.",
+       "ربط الحجز ببوابة Ziina للدفع في استشارات الفيديو الفردية.",
+       "كتب إلكترونية وأدلة تصل بصيغة PDF تلقائيًا عبر البريد، وقسم منتجات بالعمولة، ومدونة، ودليل للمستشارات.",
+       "أتمتة البريد الإلكتروني، وGoogle Analytics وMeta Pixel، والسكيما وتحسين محركات البحث.",
+       "مساعد ذكي اسمه ليلى يجيب عن الأسئلة ويقترح المنتجات والكتب والاستشارات.",
+       "تتبّعت فشل البريد الصادر إلى رجوع الخادم لاسم المضيف الافتراضي، وانتقلت بالبريد المعاملاتي إلى Brevo."]}},
+
+    {id:"gulf",h:200,img:"gulf-air-academy",cat:["wordpress","bilingual"],url:"https://gulfair-academy.com",tags:["WordPress","Elementor","Astra child","Tailwind CLI"],
+     en:{n:"Gulf Air Academy",t:"A website redesign for an aviation training academy, with approvals and accreditations up front.",d:[
+       "Elementor and Astra child theme with custom widgets.",
+       "Built an approvals and accreditations gallery for EASA, HCAA and IATA certificates, each with its own shareable deep link.",
+       "Added a second logo and an EASA badge across the About page, in six English and four Arabic variants.",
+       "Replaced a Tailwind CDN runtime that was breaking gallery and course layouts with a compiled static stylesheet."]},
+     ar:{n:"أكاديمية طيران الخليج",t:"إعادة تصميم موقع أكاديمية تدريب طيران، مع إبراز الاعتمادات والتراخيص.",d:[
+       "قالب Astra فرعي مع Elementor وويدجتات مخصصة.",
+       "بنيت معرض الاعتمادات والتراخيص لشهادات EASA وHCAA وIATA، ولكل شهادة رابط مباشر قابل للمشاركة.",
+       "أضفت شعارًا ثانيًا وشارة EASA في صفحة من نحن، بستة متغيرات إنجليزية وأربعة عربية.",
+       "استبدلت بيئة Tailwind CDN التي كانت تكسر تخطيط المعرض والدورات بملف تنسيق ثابت مُجمَّع."]}},
+
+    {id:"ats",h:195,img:"ats-medical",cat:["woo","integration"],url:"https://shop.medicalats.com",tags:["WooCommerce","Custom plugin","Contact Form 7"],
+     en:{n:"ATS Medical",t:"A request-for-quote system for a medical supplies shop that sells to businesses.",d:[
+       "Custom WooCommerce plugin, ats-rfq-system.",
+       "A three-stage approval workflow for B2B buyers, with a Contact Form 7 popup.",
+       "Fixed form ID casting, an email recipient override that was blocking messages, and an accessibility violation."]},
+     ar:{n:"إيه تي إس ميديكال",t:"نظام طلب عروض أسعار لمتجر مستلزمات طبية يبيع للشركات.",d:[
+       "إضافة ووكومرس مخصصة باسم ats-rfq-system.",
+       "مسار موافقات من ثلاث مراحل لعملاء B2B، مع نافذة منبثقة عبر Contact Form 7.",
+       "أصلحت مشكلة في تحويل معرّف النموذج، وتجاوزًا لمستلم البريد كان يمنع وصول الرسائل، ومخالفة في إتاحة الوصول."]}},
+
+    {id:"lila",h:262,img:"lila-kora",cat:["wordpress","woo"],url:"https://lila.kora.space",tags:["WordPress","Astra child","Elementor widgets","WooCommerce"],
+     en:{n:"Lila Kora",t:"A Dubai brand where customers turn their own paintings into silk scarves.",d:[
+       "Custom Astra child theme with purpose-built Elementor widgets.",
+       "Shop, public and private workshops, corporate experiences, gift cards and a design-your-own-scarf journey.",
+       "Aligned the whole site to the brand's three colours."]},
+     ar:{n:"ليلى كورا",t:"علامة في دبي يحوّل فيها العملاء لوحاتهم إلى أوشحة حرير.",d:[
+       "قالب Astra فرعي مخصص مع ويدجتات Elementor مبنية خصيصًا.",
+       "متجر، وورش عمل عامة وخاصة، وتجارب للشركات، وبطاقات هدايا، ورحلة تصميم الوشاح بنفسك.",
+       "ضبطت الموقع كله على ألوان العلامة الثلاثة."]}},
+
+    {id:"cleani",h:175,img:"cleani",cat:["wordpress","integration"],url:"https://cleani.ca",tags:["WordPress","HivePress","PHP","PDF invoices"],
+     en:{n:"Cleani",t:"A cleaning services marketplace, modelled on the TaskRabbit experience.",d:[
+       "Fixed bugs across vendor onboarding, the sign-in modal, booking creation, pricing calculation, blocked time slots and PDF invoice generation.",
+       "Found that server-level caching at the host was intercepting booking POST requests.",
+       "Supporting a move to a vendor-subscription model where contact details are shared once a booking is confirmed."]},
+     ar:{n:"كليني",t:"سوق خدمات تنظيف على غرار تجربة TaskRabbit.",d:[
+       "أصلحت أعطالًا في تسجيل مقدمي الخدمة ونافذة الدخول وإنشاء الحجز وحساب الأسعار والفترات المحجوبة وإنشاء فواتير PDF.",
+       "اكتشفت أن التخزين المؤقت على مستوى الخادم لدى الاستضافة كان يعترض طلبات POST الخاصة بالحجز.",
+       "أدعم التحول إلى نموذج اشتراك لمقدمي الخدمة، تُشارَك فيه بيانات التواصل بعد تأكيد الحجز."]}},
+
+    {id:"gains",h:30,img:"gains-by-lily",cat:["woo","bilingual"],url:"https://gainsbylily.com",tags:["WooCommerce","RTL / LTR","Coaching"],
+     en:{n:"Gains by Lily",t:"A bilingual WooCommerce platform for a fitness coaching brand.",d:[
+       "Designed and built the WordPress site, then returned for a speed and optimisation pass.",
+       "English and Arabic layouts with proper RTL and LTR handling.",
+       "Coaching offers sold through WooCommerce."]},
+     ar:{n:"جينز باي ليلي",t:"منصة ووكومرس ثنائية اللغة لعلامة تدريب لياقة.",d:[
+       "صمّمت موقع ووردبريس وبنيته، ثم عدت لجولة تحسين وسرعة.",
+       "تخطيطات إنجليزية وعربية بمعالجة سليمة لاتجاهي RTL وLTR.",
+       "عروض التدريب تُباع عبر ووكومرس."]}},
+
+    {id:"premium",h:175,img:"consulting-site",cat:["wordpress","bilingual"],url:"https://premium-citizen.com",tags:["WordPress","ACF Pro","hreflang","Arabic / English"],
+     en:{n:"Premium Citizen",t:"A bilingual lead-generation site for a citizenship and residency by investment consultancy.",d:[
+       "Programme pages for eight citizenship and four residency programmes, a blog, and a step-by-step application section.",
+       "Correct language targeting with hreflang and translated metadata.",
+       "ACF Pro blocks so the team can manage content in both languages."]},
+     ar:{n:"بريميوم سيتيزن",t:"موقع ثنائي اللغة لجذب العملاء لشركة استشارات الجنسية والإقامة بالاستثمار.",d:[
+       "صفحات برامج لثماني دول للجنسية وأربع للإقامة، ومدونة، وقسم لخطوات التقديم.",
+       "استهداف لغوي سليم عبر hreflang وبيانات وصفية مترجمة.",
+       "كتل ACF Pro ليتمكن الفريق من إدارة المحتوى باللغتين."]}},
+
+    {id:"adel",h:118,img:"adel-mozip",cat:["wordpress","bilingual"],url:"https://adelmozip.com",tags:["WordPress","ACF blocks","Video","Arabic / English"],
+     en:{n:"Adel Mozip",t:"A bilingual campaign site for a school board trustee's re-election.",d:[
+       "Custom ACF blocks, including a fundraiser event details block.",
+       "Bilingual Arabic and English content.",
+       "Video processing for a library of commencement speeches."]},
+     ar:{n:"عادل موزيب",t:"موقع حملة انتخابية ثنائي اللغة لإعادة انتخاب عضو مجلس إدارة مدارس.",d:[
+       "كتل ACF مخصصة، منها كتلة لتفاصيل فعالية جمع التبرعات.",
+       "محتوى ثنائي اللغة بالعربية والإنجليزية.",
+       "معالجة فيديو لمكتبة كلمات حفلات التخرج."]}},
+
+    {id:"abrite",h:285,img:"email-gated-downloads",cat:["woo","wordpress"],url:"https://abriteedu.com",tags:["WooCommerce","Custom theme","PHP"],
+     en:{n:"Abrite Education",t:"A custom theme and an email-gated download flow for an online tutoring business.",d:[
+       "Custom WordPress theme for a K-12 and adult tutoring brand.",
+       "A WooCommerce freebie flow: free guides unlock after the visitor shares an email address.",
+       "Ongoing website updates after launch."]},
+     ar:{n:"أبرايت للتعليم",t:"قالب مخصص ومسار تنزيل مقابل البريد لشركة دروس خصوصية عبر الإنترنت.",d:[
+       "قالب ووردبريس مخصص لعلامة دروس لطلاب المدارس والبالغين.",
+       "مسار تنزيلات مجانية في ووكومرس: تُتاح الأدلة بعد إدخال الزائر لبريده الإلكتروني.",
+       "تحديثات مستمرة للموقع بعد الإطلاق."]}},
+
+    {id:"hingz",h:18,img:"hingz",cat:["shopify"],url:"https://hingz.co",tags:["Shopify","Eyewear"],
+     en:{n:"Hingz",t:"A Shopify store for an eyewear brand."},
+     ar:{n:"هينغز",t:"متجر شوبيفاي لعلامة نظارات."}},
+
+    {id:"linda",h:336,img:"linda-mariposa",cat:["shopify"],url:"https://www.lindamariposa.com",tags:["Shopify","Theme customization"],
+     en:{n:"Linda Mariposa",t:"Theme customization and product setup for a family-owned formal dress boutique."},
+     ar:{n:"ليندا ماريبوزا",t:"تخصيص القالب وإعداد المنتجات لبوتيك عائلي لفساتين المناسبات الرسمية."}},
+
+    {id:"trueline",h:200,img:"true-line",cat:["shopify"],url:"https://weartrueline.com",tags:["Shopify","Cart drawer","Bundle discounts"],
+     en:{n:"True Line",t:"A cart drawer and bundle discounts for a Shopify apparel store.",d:[
+       "Built a full cart drawer feature set.",
+       "Built bundle discount logic. When it reached Shopify's platform limits I moved to a simpler, reliable checkout flow, and evaluated a Shopify Functions approach for the rest."]},
+     ar:{n:"ترو لاين",t:"درج سلة وخصومات باقات لمتجر ملابس على شوبيفاي.",d:[
+       "بنيت مجموعة ميزات كاملة لدرج السلة.",
+       "بنيت منطق خصومات الباقات. وحين بلغ حدود منصة شوبيفاي انتقلت إلى مسار شراء أبسط وموثوق، وقيّمت حلًا قائمًا على Shopify Functions لما تبقى."]}},
+
+    {id:"rahalat",h:48,img:"rahalat",cat:["wordpress","integration"],url:"",tags:["WordPress","PHP","ACF","CSS Grid"],
+     en:{n:"Rahalat",t:"A custom trip booking system, with a seat map for a double-decker bus.",d:[
+       "Custom booking platform on WordPress, PHP and ACF.",
+       "Built a full double-decker bus seating layout, positioned with an explicit four-column CSS Grid.",
+       "Fixed a child fare pricing bug in how ordinals were tracked.",
+       "Fixed a room label display error caused by a direct edit to a field."]},
+     ar:{n:"رحلات",t:"نظام حجز رحلات مخصص، مع خريطة مقاعد لحافلة بطابقين.",d:[
+       "منصة حجز مخصصة على ووردبريس وPHP وACF.",
+       "بنيت تخطيط مقاعد كاملًا لحافلة بطابقين، موزّعًا بشبكة CSS Grid صريحة من أربعة أعمدة.",
+       "أصلحت خللًا في تسعير تذاكر الأطفال سببه طريقة تتبّع الترتيب.",
+       "أصلحت خطأ في عرض أسماء الغرف سببه تعديل مباشر على أحد الحقول."]}},
+
+    {id:"uspace",h:222,img:"u-space-drones",cat:["wordpress"],url:"https://xudrone.com",tags:["Tutor LMS","WordPress","Google Slides"],
+     en:{n:"U-Space Drones",t:"A learning platform update for a drone training academy, across 12 course modules.",d:[
+       "Replaced the lesson presentations embedded in Tutor LMS across 12 modules, from the A1-A3 and A2 categories to STS-01 and STS-02.",
+       "Updated the exam question banks for each module.",
+       "Handled the Google Slides embeds myself when access to the original account was pending, so publishing was not blocked."]},
+     ar:{n:"يو سبيس درونز",t:"تحديث منصة التعلّم لأكاديمية تدريب على الطائرات المسيّرة، عبر 12 وحدة تدريبية.",d:[
+       "استبدلت عروض الدروس المضمّنة في Tutor LMS عبر 12 وحدة، من فئات A1-A3 وA2 إلى STS-01 وSTS-02.",
+       "حدّثت بنوك أسئلة الامتحان لكل وحدة.",
+       "تولّيت عروض Google Slides المضمّنة بنفسي حين تأخّر الوصول إلى الحساب الأصلي، حتى لا يتوقف النشر."]}},
+
+    {id:"griffin",h:8,img:"griffin-exploration",cat:["rescue"],url:"https://griffinexploration.com",tags:["Security","WP-CLI","Recovery"],
+     en:{n:"Griffin Exploration",t:"Full hack recovery and security hardening for a compromised WordPress site.",d:[
+       "Removed a malware toolkit: 12 malicious plugin folders, webshells and backdoors, and 34 rogue admin accounts.",
+       "Restored from a server-level backup, rotated every credential and rebuilt from the pre-hack database.",
+       "Hardened the site and proposed an ongoing security retainer."]},
+     ar:{n:"غريفين إكسبلوريشن",t:"استعادة كاملة لموقع ووردبريس مخترَق وتقوية أمانه.",d:[
+       "أزلت حزمة برمجيات خبيثة: 12 مجلد إضافات ضارًا، وبوابات خلفية، و34 حساب مدير مزيفًا.",
+       "استعدت الموقع من نسخة احتياطية على مستوى الخادم، وبدّلت كل بيانات الدخول، وأعدت البناء من قاعدة البيانات السابقة للاختراق.",
+       "قوّيت أمان الموقع واقترحت عقد صيانة أمنية مستمرًا."]}}
+  ];
+
+  /* ---------- Smaller builds (no dialog) ---------- */
+  var MORE = [
+    {cat:["shopify"],links:["livocare.co"],tags:["Shopify","Liquid"],
+     en:{n:"LivoCare",s:"Custom Shopify sections for two product pages, a site-wide rebrand to a new palette, font fixes and a theme-wide video gallery fix."},
+     ar:{n:"ليفوكير",s:"أقسام شوبيفاي مخصصة لصفحتي منتجين، وإعادة هوية كاملة بألوان جديدة، وإصلاحات للخطوط، وإصلاح معرض الفيديو في القالب كله."}},
+    {cat:["shopify"],links:["jomaa-spirulina.de"],tags:["Shopify","Shapes theme","Alpine.js"],
+     en:{n:"JoMaa Spirulina",s:"A theme migration to Shapes 4.4.0, with schema validation errors fixed, Alpine.js header errors resolved, Judge.me ratings repaired and a custom branded header."},
+     ar:{n:"جومعة سبيرولينا",s:"ترحيل القالب إلى Shapes 4.4.0، مع إصلاح أخطاء التحقق من المخطط، وأخطاء Alpine.js في الترويسة، وتقييمات Judge.me، وترويسة مخصصة بألوان العلامة."}},
+    {cat:["shopify"],links:["marleebrand.com","ariascent.com","rozalinda.net"],tags:["Shopify","Custom Liquid","UX/UI"],
+     en:{n:"Marlee, Aria Scent, Rozalinda",s:"Beauty and premium Shopify stores built end to end: UX and UI, a custom Liquid theme, development and launch."},
+     ar:{n:"مارلي وأريا سنت وروزاليندا",s:"متاجر شوبيفاي للجمال والعلامات الفاخرة بُنيت من الألف إلى الياء: تجربة وواجهة المستخدم، وقالب Liquid مخصص، والتطوير والإطلاق."}},
+    {cat:["wordpress"],links:["yahmarentacar.com/en"],tags:["Booking"],
+     en:{n:"Yahma Rent a Car",s:"A car rental website."},
+     ar:{n:"يهمة لتأجير السيارات",s:"موقع لتأجير السيارات."}},
+    {cat:["wordpress"],links:[],tags:["WordPress","Custom plugin"],
+     en:{n:"Trace FM",s:"A website for a Cairo facility management company, with a simple technician report tool: a photo and comment per diagnosis, multiple diagnoses and a client signature."},
+     ar:{n:"تريس إف إم",s:"موقع لشركة إدارة مرافق في القاهرة، مع أداة تقارير مبسطة للفنيين: صورة وتعليق لكل تشخيص، وعدة تشخيصات، وتوقيع العميل."}},
+    {cat:["wordpress","integration"],links:[],tags:["CSS / JS","ESP APIs"],
+     en:{n:"JetATS Technic",s:"Custom CSS and JS loaders, responsive fixes and email service provider API integrations."},
+     ar:{n:"جيت إيه تي إس تكنيك",s:"محمّلات CSS وJS مخصصة، وإصلاحات التجاوب، وتكاملات مع واجهات مزوّدي خدمة البريد."}},
+    {cat:["rescue","wordpress"],links:["couponela.com"],tags:["WordPress","ReHub","Security"],
+     en:{n:"Couponela",s:"A coupon site built on ReHub, cleaned of an SEO spam injection."},
+     ar:{n:"كوبونيلا",s:"موقع كوبونات على قالب ReHub، نظّفته من حقن سبام تحسين محركات البحث."}},
+    {cat:["wordpress"],links:["teranova-estates.com"],tags:["Elementor","Responsive"],
+     en:{n:"Teranova Estates",s:"Mobile responsiveness fixes in Elementor for a real-estate website."},
+     ar:{n:"تيرانوفا إستيتس",s:"إصلاحات التجاوب مع الجوال في Elementor لموقع عقارات."}},
+    {cat:["wordpress","bilingual"],links:[],tags:["ACF Pro","RSVP","Arabic / English"],
+     en:{n:"Wedding invitation theme",s:"A custom WordPress wedding theme with ACF Pro blocks, an English and Arabic toggle, an RSVP post type, a countdown and background music."},
+     ar:{n:"قالب دعوة زفاف",s:"قالب ووردبريس مخصص لموقع زفاف، بكتل ACF Pro وتبديل بين الإنجليزية والعربية ونوع محتوى للرد على الدعوة وعدّاد تنازلي وموسيقى خلفية."}},
+    {cat:["shopify"],links:[],tags:["Shopify","Liquid","Retainer"],
+     en:{n:"Shopify support retainer",s:"An ongoing monthly retainer for a Shopify store: theme, Liquid and CSS fixes and app configuration, worked from the client's feedback lists."},
+     ar:{n:"عقد دعم شوبيفاي",s:"عقد شهري مستمر لمتجر شوبيفاي: إصلاحات القالب وLiquid وCSS وضبط التطبيقات، بالعمل على قوائم ملاحظات العميل."}}
+  ];
+
+  var ALSO = {
+    en:["Shopify back-in-stock notifications","Shopify product page configurator","Figma-to-Shopify builds","Shopify store duplication and migration","WooCommerce order data migration","Website migrations","Arabic language option for existing sites","Arabic RTL Shopify sections","Gravity Forms and Formidable Forms styling and fixes","Contact form integration fixes","WordPress on a VPS, from setup to launch","Multi-vendor marketplace fixes and enhancements","Fashion e-commerce on WooCommerce","Used-car dealership website","Save-the-date wedding website","Homepage and hero redesigns in theme code","Landing pages","Online store enhancements"],
+    ar:["إشعارات عودة المنتج للمخزون في شوبيفاي","أداة تخصيص صفحة المنتج في شوبيفاي","بناء قوالب شوبيفاي من تصاميم Figma","نسخ متاجر شوبيفاي وترحيلها","ترحيل بيانات طلبات ووكومرس","ترحيل المواقع","إضافة اللغة العربية لمواقع قائمة","أقسام شوبيفاي عربية بدعم RTL","تنسيق وإصلاح نماذج Gravity Forms وFormidable Forms","إصلاح تكاملات نماذج التواصل","تجهيز ووردبريس على VPS من الإعداد إلى الإطلاق","إصلاح وتطوير أسواق متعددة البائعين","متاجر أزياء على ووكومرس","موقع معرض سيارات مستعملة","موقع دعوة زفاف (Save the Date)","إعادة تصميم الصفحة الرئيسية والواجهة من كود القالب","صفحات هبوط","تحسينات للمتاجر الإلكترونية"]
+  };
+
+  /* ---------- Field notes ---------- */
+  var NOTES = [
+    {tag:{en:"Shopify Plus store",ar:"متجر Shopify Plus"},
+     en:{t:"Bundles that unchecked themselves",s:"Customers in some GCC markets picked bundle items and the selections silently cleared, on a large share of bundle orders.",c:"A CSS class collision plus a MutationObserver in the geo-logic script was force-unchecking items.",x:"Removed the collision and fixed the validation, so selections stay put in every market."},
+     ar:{t:"باقات تلغي اختياراتها وحدها",s:"عملاء في بعض أسواق الخليج يختارون عناصر الباقة فتُمسح اختياراتهم بصمت، في نسبة كبيرة من طلبات الباقات.",c:"تعارض في اسم فئة CSS مع MutationObserver في سكربت منطق الموقع كان يلغي تحديد العناصر قسرًا.",x:"أزلت التعارض وأصلحت التحقق، فتبقى الاختيارات كما هي في كل سوق."}},
+    {tag:{en:"Marketplace",ar:"سوق خدمات"},
+     en:{t:"Bookings that would not complete",s:"Customers reached the last step and the booking never went through.",c:"Server-level caching at the host was intercepting the booking POST requests, outside WordPress entirely.",x:"Pinned the blocker to the host's cache layer instead of plugin code, so bookings could complete."},
+     ar:{t:"حجوزات لا تكتمل",s:"العملاء يصلون إلى الخطوة الأخيرة ولا يتم الحجز.",c:"التخزين المؤقت على مستوى الخادم لدى الاستضافة كان يعترض طلبات POST الخاصة بالحجز، خارج ووردبريس تمامًا.",x:"حددت العائق في طبقة التخزين المؤقت لدى الاستضافة بدل كود الإضافة، فاكتملت الحجوزات."}},
+    {tag:{en:"Membership platform",ar:"منصة عضويات"},
+     en:{t:"Failed payments marked as paid",s:"Members received confirmations and invoices for payments that had failed or expired.",c:"A resend tool treated every transaction it processed as successful.",x:"Ran forensic analysis with WP-CLI scripts to find every affected record, then corrected the logic."},
+     ar:{t:"مدفوعات فاشلة تُسجَّل كمدفوعة",s:"أعضاء تلقّوا تأكيدات وفواتير عن مدفوعات فاشلة أو منتهية الصلاحية.",c:"أداة إعادة الإرسال كانت تعامل كل عملية تعالجها على أنها ناجحة.",x:"أجريت تحليلًا جنائيًا بسكربتات WP-CLI لتحديد كل سجل متأثر، ثم صحّحت المنطق."}},
+    {tag:{en:"Compromised WordPress site",ar:"موقع ووردبريس مخترَق"},
+     en:{t:"A site full of backdoors",s:"The site had been taken over.",c:"12 malicious plugin folders, webshells, backdoors and 34 rogue admin accounts.",x:"Restored from a server-level backup, rotated every credential and rebuilt from the pre-hack database."},
+     ar:{t:"موقع مليء بالأبواب الخلفية",s:"كان الموقع قد سُيطر عليه.",c:"12 مجلد إضافات ضارًا، وبوابات خلفية، و34 حساب مدير مزيفًا.",x:"استعدت الموقع من نسخة احتياطية على مستوى الخادم، وبدّلت كل بيانات الدخول، وأعدت البناء من قاعدة البيانات السابقة للاختراق."}},
+    {tag:{en:"Aviation academy site",ar:"موقع أكاديمية طيران"},
+     en:{t:"Layouts collapsing at random",s:"Gallery and course images broke their layout on the live site.",c:"Tailwind's CDN runtime was executing in the visitor's browser.",x:"Compiled a static stylesheet with the Tailwind CLI and removed the runtime."},
+     ar:{t:"تخطيطات تنهار عشوائيًا",s:"صور المعرض والدورات كانت تكسر التخطيط في الموقع الحي.",c:"بيئة Tailwind CDN كانت تعمل داخل متصفح الزائر.",x:"جمّعت ملف تنسيق ثابتًا بأداة Tailwind CLI وأزلت بيئة التشغيل تلك."}},
+    {tag:{en:"Arabic-first platform",ar:"منصة عربية"},
+     en:{t:"Site emails rejected with a 550",s:"Transactional mail from the site was bouncing at the host's SMTP relay.",c:"Mail was falling back to the server's default hostname instead of the site's domain.",x:"Traced it to the hostname fallback and switched transactional email to Brevo."},
+     ar:{t:"رسائل الموقع تُرفض بخطأ 550",s:"بريد الموقع المعاملاتي كان يُرفض عند مرحّل SMTP لدى الاستضافة.",c:"كان البريد يرجع إلى اسم المضيف الافتراضي للخادم بدل نطاق الموقع.",x:"تتبّعت المشكلة إلى رجوع اسم المضيف، وانتقلت بالبريد المعاملاتي إلى Brevo."}}
+  ];
+
+  /* ---------- Services ---------- */
+  var SERVICES = [
+    {t:["Shopify themes and sections","ثيمات وأقسام شوبيفاي"],
+     p:["Custom Liquid themes, sections and blocks, from Figma or from scratch. Bundle builders, cart drawers, market-specific pricing and shipping, Shopify Plus, theme migrations, product configurators and app integrations.","قوالب وأقسام وكتل Liquid مخصصة، من تصاميم Figma أو من الصفر. أدوات باقات، وأدراج سلة، وأسعار وشحن حسب السوق، وShopify Plus، وترحيل القوالب، وأدوات تخصيص المنتج، وتكامل التطبيقات."],
+     c:["Liquid","Shopify Plus","Markets","Bundles","Cart drawer","Migrations"]},
+    {t:["WordPress and WooCommerce systems","أنظمة ووردبريس وووكومرس"],
+     p:["Custom themes, ACF Pro block systems, Elementor widgets and plugins. Quote, booking, membership, marketplace and LMS systems, plus forms in Contact Form 7, Gravity Forms and Formidable.","قوالب مخصصة، وأنظمة كتل ACF Pro، وويدجتات Elementor، وإضافات. وأنظمة عروض أسعار وحجز وعضويات وأسواق ومنصات تعلّم، ونماذج عبر Contact Form 7 وGravity Forms وFormidable."],
+     c:["Custom themes","ACF Pro","Plugins","RFQ","HivePress","Tutor LMS"]},
+    {t:["Arabic and English builds","مشاريع بالعربية والإنجليزية"],
+     p:["Layouts that work in both directions: RTL and LTR, Polylang or WPML, translated metadata, hreflang and language toggles. Arabic is my first language, not an afterthought.","تخطيطات تعمل في الاتجاهين: RTL وLTR، وPolylang أو WPML، وبيانات وصفية مترجمة، وhreflang، وأزرار تبديل اللغة. العربية لغتي الأم، وليست إضافة لاحقة."],
+     c:["RTL / LTR","Polylang","WPML","hreflang"]},
+    {t:["Payments and booking pipelines","مسارات الدفع والحجز"],
+     p:["Subscriptions, memberships and bookings connected to the gateways your market uses: XPay and Ziina in the GCC, Stripe and PayPal elsewhere. Seat maps, room allocation and tiered discounts included.","اشتراكات وعضويات وحجوزات مرتبطة ببوابات الدفع في سوقك: XPay وZiina في الخليج، وStripe وPayPal في غيره. وتشمل خرائط المقاعد وتوزيع الغرف والخصومات المتدرجة."],
+     c:["XPay","Ziina","Stripe","PayPal","Subscriptions"]},
+    {t:["Integrations and automation","التكاملات والأتمتة"],
+     p:["Odoo and ERP syncs, HubSpot, REST APIs and webhooks, email automation in FluentCRM, MailPoet and Brevo, and tracking with GA4, Tag Manager and Meta Pixel. AI-assisted content workflows through the Claude API.","مزامنة Odoo وأنظمة ERP، وHubSpot، وواجهات REST وخطافات الويب، وأتمتة البريد عبر FluentCRM وMailPoet وBrevo، والتتبع عبر GA4 وTag Manager وMeta Pixel. وسير عمل للمحتوى بمساعدة الذكاء الاصطناعي عبر واجهة Claude."],
+     c:["Odoo","HubSpot","REST","Webhooks","GA4","Claude API"]},
+    {t:["Technical SEO and speed","السيو التقني والسرعة"],
+     p:["Core Web Vitals, JSON-LD schema, indexing and canonicals, hreflang, Rank Math data migration and caching. Built in, not bolted on afterwards.","مؤشرات Core Web Vitals، ومخطط JSON-LD، والفهرسة والروابط الأساسية، وhreflang، ونقل بيانات Rank Math، والتخزين المؤقت. مدمجة في البناء وليست إضافة لاحقة."],
+     c:["Core Web Vitals","JSON-LD","Canonicals","Rank Math"]},
+    {t:["Security and rescue","الأمان والإنقاذ"],
+     p:["Malware cleanup, hack recovery, hardening, plugin and theme conflicts and checkout bugs. I find the root cause before I touch the fix.","تنظيف البرمجيات الخبيثة، واستعادة المواقع المخترقة، وتقوية الأمان، وحل تعارضات الإضافات والقوالب، وإصلاح أعطال الدفع. أجد السبب الجذري قبل أن ألمس الحل."],
+     c:["Malware cleanup","Hardening","WP-CLI","Debugging"]},
+    {t:["Retainers and ongoing care","عقود الصيانة والدعم المستمر"],
+     p:["A monthly retainer with agreed hours, one accountable person who knows your codebase, and updates on Upwork, Slack or WhatsApp, whichever you use.","عقد شهري بساعات متفق عليها، وشخص واحد مسؤول يعرف الكود الخاص بك، وتحديثات عبر Upwork أو Slack أو واتساب، حسب ما تستخدمه."],
+     c:["Monthly hours","Maintenance","Slack","WhatsApp"]}
+  ];
+
+  /* ---------- Process ---------- */
+  var STEPS = [
+    {en:["Tell me the bottleneck","Send your site URL and the one thing slowing sales or blocking you. I reply with what I would fix first."],
+     ar:["أخبرني بالعائق","أرسل رابط موقعك وأكثر شيء يبطّئ مبيعاتك أو يعطّلك. وسأرد عليك بما سأصلحه أولًا."]},
+    {en:["Scope it in writing","A clear scope and timeline before I write code, and hourly with agreed limits or fixed, whichever fits how certain the work is."],
+     ar:["نحدد النطاق كتابةً","نطاق وجدول زمني واضحان قبل أن أكتب سطر كود، بالساعة بحدود متفق عليها أو بسعر ثابت، بحسب وضوح العمل."]},
+    {en:["Build and report daily","I build on staging and send daily updates over Upwork, Slack or WhatsApp. You see progress, not surprises."],
+     ar:["أبني وأبلغك يوميًا","أبني على نسخة تجريبية وأرسل تحديثات يومية عبر Upwork أو Slack أو واتساب. ترى التقدم، لا المفاجآت."]},
+    {en:["Hand over, then support","Documented code and a clean handover, with an optional retainer if you want me to stay on."],
+     ar:["أسلّم ثم أدعم","كود موثّق وتسليم منظم، مع عقد صيانة اختياري إن أردتني أن أبقى معك."]}
+  ];
+
+  /* ---------- Stack ---------- */
+  var STACK = [
+    {k:["Platforms","المنصات"],v:["Shopify, Shopify Plus, WordPress, WooCommerce","Shopify وShopify Plus وWordPress وWooCommerce"]},
+    {k:["Languages","لغات البرمجة"],v:["Liquid, PHP, JavaScript, HTML, CSS, Tailwind CLI","Liquid وPHP وJavaScript وHTML وCSS وTailwind CLI"]},
+    {k:["WordPress","ووردبريس"],v:["Custom themes and plugins, ACF Pro, Elementor widgets, Astra and Kadence child themes, HivePress, Tutor LMS, Polylang, WPML, WP-CLI","قوالب وإضافات مخصصة، وACF Pro، وويدجتات Elementor، وقوالب Astra وKadence الفرعية، وHivePress، وTutor LMS، وPolylang، وWPML، وWP-CLI"]},
+    {k:["Shopify","شوبيفاي"],v:["Online Store 2.0 sections and blocks, Plus market logic, Upcart, Fast Bundle, Judge.me, Seal subscriptions, Shopify Functions","أقسام وكتل Online Store 2.0، ومنطق الأسواق في Plus، وUpcart، وFast Bundle، وJudge.me، واشتراكات Seal، وShopify Functions"]},
+    {k:["Integrations","التكاملات"],v:["Odoo, REST APIs, webhooks, XPay, Ziina, Stripe, PayPal, HubSpot, Claude API","Odoo وواجهات REST وخطافات الويب وXPay وZiina وStripe وPayPal وHubSpot وواجهة Claude"]},
+    {k:["Marketing and email","التسويق والبريد"],v:["GA4, Google Tag Manager, Meta Pixel, FluentCRM, MailPoet, Brevo","GA4 وGoogle Tag Manager وMeta Pixel وFluentCRM وMailPoet وBrevo"]},
+    {k:["Quality","الجودة"],v:["Core Web Vitals, JSON-LD schema, hreflang, Rank Math, security hardening, documented handover","Core Web Vitals، ومخطط JSON-LD، وhreflang، وRank Math، وتقوية الأمان، وتسليم موثّق"]},
+    {k:["Working with","أعمل عبر"],v:["Upwork, Slack, WhatsApp, Figma","Upwork وSlack وواتساب وFigma"]}
+  ];
+
+  /* Real Upwork reviews go here. Example: {q:"Quote text", n:"Client name or company", r:"Project"} */
+  var TESTIMONIALS = [];
+
+  /* ---------- State and helpers ---------- */
+  var lang = "en", active = "all";
+  var $ = function(s){return document.querySelector(s)};
+  var root = document.documentElement;
+  var FILTERS = ["all","shopify","wordpress","woo","integration","bilingual","rescue"];
+  var found = {};
+  function t(k){return T[lang][k]}
+  function pick(a){return lang === "ar" ? a[1] : a[0]}
+  function esc(s){return String(s).replace(/[&<>"]/g, function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+  function mock(h, dom){
+    return '<div class="thumb" style="--h:' + h + '" aria-hidden="true">' +
+      '<div class="chrome"><i></i><i></i><i></i><span>' + esc(dom) + '</span></div>' +
+      '<div class="page"><div class="nav"><b></b><u></u><u></u><u></u></div><div class="hero-b"></div><div class="tiles"><i></i><i></i><i></i></div></div></div>';
+  }
+
+  function attachShot(th, p, alt){
+    var exts = ["jpg","png","webp"], n = 0, img = new Image();
+    img.className = "shot"; img.alt = alt; img.loading = "lazy"; img.decoding = "async";
+    img.addEventListener("load", function(){found[p.id] = img.getAttribute("src"); img.classList.add("ok")});
+    img.addEventListener("error", function(){
+      n++;
+      if(n < exts.length){ img.src = "images/" + p.img + "." + exts[n]; } else { img.remove(); }
+    });
+    img.src = "images/" + p.img + "." + exts[0];
+    th.appendChild(img);
+  }
+
+  function dom(u){return u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+
+  function applyStatic(){
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n"); if(T[lang][k] != null) el.textContent = T[lang][k];
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(function(el){
+      var k = el.getAttribute("data-i18n-html"); if(T[lang][k] != null) el.innerHTML = T[lang][k];
+    });
+  }
+
+  function renderFilters(){
+    var box = $("#filters"); box.innerHTML = "";
+    FILTERS.forEach(function(f){
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = t("f_" + f);
+      b.setAttribute("aria-pressed", String(f === active));
+      b.addEventListener("click", function(){active = f; renderFilters(); applyFilter();});
+      box.appendChild(b);
+    });
+  }
+
+  function tagsHtml(a){return '<div class="tags">' + a.map(function(x){return '<span>' + esc(x) + '</span>'}).join("") + '</div>'}
+
+  function renderGrid(){
+    var g = $("#grid"); g.innerHTML = "";
+    FEATURED.forEach(function(p){
+      var c = p[lang], hasD = !!(c.d && c.d.length);
+      var a = document.createElement("article");
+      a.className = "card"; a.dataset.cat = p.cat.join(" ");
+      var title = hasD
+        ? '<button type="button" class="open" data-id="' + p.id + '">' + esc(c.n) + '</button>'
+        : '<a class="open" href="' + p.url + '" target="_blank" rel="noopener">' + esc(c.n) + '</a>';
+      var foot = hasD
+        ? '<div class="card-foot"><span>' + t("d_case") + '</span>' + (p.url ? '<a class="visit" href="' + p.url + '" target="_blank" rel="noopener" aria-label="' + esc(c.n) + ' live site">' + esc(dom(p.url)) + ' ↗</a>' : '') + '</div>'
+        : '<div class="card-foot"><span class="visit" style="z-index:0">' + esc(dom(p.url)) + ' ↗</span></div>';
+      a.innerHTML = mock(p.h, p.url ? dom(p.url) : c.n.toLowerCase()) + '<div class="card-body">' + title + '<p>' + esc(c.t) + '</p>' + tagsHtml(p.tags) + foot + '</div>';
+      attachShot(a.querySelector(".thumb"), p, c.n);
+      g.appendChild(a);
+    });
+    g.querySelectorAll("button.open").forEach(function(b){
+      b.addEventListener("click", function(){openCase(b.getAttribute("data-id"))});
+    });
+    applyFilter();
+  }
+
+  function renderMore(){
+    var m = $("#more"); m.innerHTML = "";
+    MORE.forEach(function(p){
+      var c = p[lang];
+      var r = document.createElement("div");
+      r.className = "mrow"; r.dataset.cat = p.cat.join(" ");
+      var links = p.links.map(function(u){return '<a href="https://' + u + '" target="_blank" rel="noopener">' + esc(u) + ' ↗</a>'}).join("");
+      r.innerHTML = '<h4>' + esc(c.n) + '</h4><p>' + esc(c.s) + '</p><div class="mlinks">' + links + tagsHtml(p.tags) + '</div>';
+      m.appendChild(r);
+    });
+    var al = $("#also"); al.innerHTML = ALSO[lang].map(function(x){return '<span>' + esc(x) + '</span>'}).join("");
+    applyFilter();
+  }
+
+  function applyFilter(){
+    document.querySelectorAll("#grid .card, #more .mrow").forEach(function(c){
+      var show = active === "all" || c.dataset.cat.split(" ").indexOf(active) > -1;
+      c.hidden = !show;
+    });
+  }
+
+  function renderNotes(){
+    $("#notesGrid").innerHTML = NOTES.map(function(n){
+      var c = n[lang];
+      return '<article class="nc"><h3>' + esc(c.t) + '</h3><dl>' +
+        '<div><dt>' + t("s_label") + '</dt><dd>' + esc(c.s) + '</dd></div>' +
+        '<div><dt>' + t("c_label") + '</dt><dd>' + esc(c.c) + '</dd></div>' +
+        '<div><dt>' + t("x_label") + '</dt><dd>' + esc(c.x) + '</dd></div></dl>' +
+        '<div class="src">' + esc(n.tag[lang === "ar" ? "ar" : "en"]) + '</div></article>';
+    }).join("");
+  }
+
+  function renderServices(){
+    $("#svc").innerHTML = SERVICES.map(function(s){
+      return '<article><h3>' + esc(pick(s.t)) + '</h3><p>' + esc(pick(s.p)) + '</p><ul>' +
+        s.c.map(function(x){return '<li>' + esc(x) + '</li>'}).join("") + '</ul></article>';
+    }).join("");
+  }
+
+  function renderSteps(){
+    $("#steps").innerHTML = STEPS.map(function(s, i){
+      var c = s[lang];
+      return '<li><b>0' + (i + 1) + '</b><h3>' + esc(c[0]) + '</h3><p>' + esc(c[1]) + '</p></li>';
+    }).join("");
+  }
+
+  function renderStack(){
+    $("#stackBox").innerHTML = STACK.map(function(r){
+      return '<div class="r"><b>' + esc(pick(r.k)) + '</b><span>' + esc(pick(r.v)) + '</span></div>';
+    }).join("");
+  }
+
+  function renderVoices(){
+    var sec = $("#voices");
+    if(!TESTIMONIALS.length){ sec.hidden = true; return; }
+    sec.hidden = false;
+    $("#voicesGrid").innerHTML = TESTIMONIALS.map(function(v){
+      return '<figure class="voice"><blockquote>' + esc(v.q) + '</blockquote><figcaption>' + esc(v.n) + (v.r ? ' · ' + esc(v.r) : '') + '</figcaption></figure>';
+    }).join("");
+  }
+
+  /* ---------- Dialog ---------- */
+  var dlg = $("#dlg");
+  function openCase(id){
+    var p = FEATURED.filter(function(x){return x.id === id})[0]; if(!p) return;
+    var c = p[lang];
+    $("#dlgBody").innerHTML =
+      mock(p.h, p.url ? dom(p.url) : c.n.toLowerCase()) +
+      '<div class="dl-body"><div class="eyebrow">' + t("d_did") + '</div><h3 id="dlgTitle">' + esc(c.n) + '</h3><p class="lead">' + esc(c.t) + '</p>' +
+      '<ul>' + c.d.map(function(x){return '<li>' + esc(x) + '</li>'}).join("") + '</ul>' + tagsHtml(p.tags) +
+      (p.url ? '<div class="dl-actions"><a class="btn primary" href="' + p.url + '" target="_blank" rel="noopener">' + t("d_visit") + '</a></div>' : '') + '</div>';
+    var th = $("#dlgBody .thumb");
+    if(found[p.id]){
+      var im = new Image(); im.className = "shot ok"; im.alt = c.n; im.src = found[p.id]; th.appendChild(im);
+    } else { attachShot(th, p, c.n); }
+    $("#dlgClose").setAttribute("aria-label", t("d_close"));
+    document.body.style.overflow = "hidden";
+    if(dlg.showModal){ dlg.showModal(); } else { dlg.setAttribute("open", ""); }
+  }
+  function closeCase(){
+    if(dlg.close){ dlg.close(); } else { dlg.removeAttribute("open"); }
+    document.body.style.overflow = "";
+  }
+  $("#dlgClose").addEventListener("click", closeCase);
+  dlg.addEventListener("click", function(e){ if(e.target === dlg) closeCase(); });
+  dlg.addEventListener("close", function(){ document.body.style.overflow = ""; });
+
+  /* ---------- Language, theme, copy ---------- */
+  function setLang(l){
+    if(dlg.open) closeCase();
+    lang = l;
+    root.lang = l; root.dir = l === "ar" ? "rtl" : "ltr";
+    $("#langBtn").textContent = l === "ar" ? "EN" : "ع";
+    $("#cLang").textContent = l; $("#cDir").textContent = root.dir;
+    applyStatic(); renderFilters(); renderGrid(); renderMore(); renderNotes(); renderServices(); renderSteps(); renderStack(); renderVoices();
+    try{localStorage.setItem("hf-lang", l)}catch(e){}
+  }
+  $("#langBtn").addEventListener("click", function(){setLang(lang === "en" ? "ar" : "en")});
+  $("#heroLang").addEventListener("click", function(){setLang(lang === "en" ? "ar" : "en")});
+
+  $("#themeBtn").addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme");
+    if(!cur) cur = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try{localStorage.setItem("hf-theme", next)}catch(e){}
+  });
+
+  $("#copyBtn").addEventListener("click", function(){
+    var btn = this, txt = $("#mail").textContent;
+    function done(){btn.textContent = t("copied"); setTimeout(function(){btn.textContent = t("copy")}, 1600)}
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents($("#mail"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    try{ navigator.clipboard.writeText(txt).then(done, fallback); }catch(e){ fallback(); }
+  });
+
+  var saved = null, savedTheme = null;
+  try{saved = localStorage.getItem("hf-lang"); savedTheme = localStorage.getItem("hf-theme")}catch(e){}
+  if(savedTheme === "dark" || savedTheme === "light") root.setAttribute("data-theme", savedTheme);
+  setLang(saved === "ar" ? "ar" : "en");
+})();
+</script>
+
+</body>
+</html>
